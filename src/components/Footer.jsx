@@ -8,7 +8,7 @@ function Footer(props) {
 
   useEffect(() => {
     const userData = getDataFromLocalStorage('allUsersData');
-    const count = userData.length > 6 ? Math.ceil(userData.length / DEFAULT_PAGE_ORDER_COUNT) : 1;
+    const count = userData && userData.length > 6 ? Math.ceil(userData.length / DEFAULT_PAGE_ORDER_COUNT) : 1;
 
     setPageCount(count);
   }, [])

@@ -7,10 +7,10 @@ import { getDataFromLocalStorage } from './lib/storageHelpers';
 
 function App() {
   const [skip, setSkip] = useState(0);
-  const [slicedData, setSlicedData] = useState(getDataFromLocalStorage('allUsersData').slice(skip, skip+6) || []);
+  const [slicedData, setSlicedData] = useState((getDataFromLocalStorage('allUsersData') && getDataFromLocalStorage('allUsersData').slice(skip, skip+6)) || []);
 
   useEffect(() => {
-    setSlicedData(getDataFromLocalStorage('allUsersData').slice(skip, skip+6));
+    setSlicedData((getDataFromLocalStorage('allUsersData') && getDataFromLocalStorage('allUsersData').slice(skip, skip+6)) || []);
   }, [skip]);
   
   
